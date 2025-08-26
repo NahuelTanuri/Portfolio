@@ -1,15 +1,32 @@
+/* Reset y estilos base */
 * {
   text-align: center;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
   color: rgb(21, 117, 146);
-}
-body {
-  background-color: #100114;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  background-color: #100114;
+  padding-bottom: 80px; /* Evita que el footer tape contenido */
+}
+
+/* Título y presentación */
 #titulo {
-  margin-bottom: 80px;
+  margin: 40px 20px;
+}
+
+#titulo h1 {
+  font-size: 36px;
+  margin-bottom: 10px;
+}
+
+#titulo p {
+  font-size: 18px;
+  margin-bottom: 15px;
 }
 
 #titulo span {
@@ -17,66 +34,119 @@ body {
   color: aliceblue;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* Contenido principal */
 #contenido {
-  display: flex; /*dispone los items dentro de #contenido en bloques uno alado de otro*/
-  justify-content: space-between; /*crea espacio entre ellos*/
-  gap: 25px; /*tama;o del espacio entre items*/
+  display: flex;
+  justify-content: space-between;
+  gap: 25px;
+  margin: 20px;
 }
 
 .conocimientos,
 .descipcion {
-  flex: 1; /*ambos contenedores ocupan el mismo espacio*/
-  box-shadow: 5px 5px 5px #070f08;
-  border-radius: 60px; /* esto da forma de ovalo */
+  flex: 1;
+  box-shadow: 5px 5px 5px #0f2011;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #400a478e;
+}
+
+.conocimientos h2,
+.descipcion h2 {
+  margin-bottom: 10px;
+  color: white;
 }
 
 span {
   color: aliceblue;
 }
+
 .fondo a {
   background-color: #183319;
   color: wheat;
+  padding: 5px 10px;
+  border-radius: 8px;
+  text-decoration: none;
 }
 
+/* Menú */
 .contenedor {
-  /*separa el menu horizontal de la descripcion y el footer*/
-  margin-top: 100px;
-  margin-bottom: 100px;
+  margin: 60px 0;
 }
+
 .menu-horizontal {
-  display: flex; /*para poner los li de forma horaizontal*/
-  gap: 150px; /* espacio entre los ítems */
-  list-style: none; /* saca los puntos de lista */
-  padding: 0;
-  justify-content: center; /*centra el contenido*/
+  display: flex;
+  gap: 150px;
+  list-style: none;
+  justify-content: center;
 }
 
 .menu-horizontal li a {
-  display: inline-block; /*para tratar a cada item como un bloque en linea*/
-  padding: 10px 40px; /*ajusta el tamanio del click del boton */
+  display: inline-block;
+  padding: 10px 40px;
   background-color: #183319;
   color: white;
-  border-radius: 70px; /* esto da forma de ovalo */
-  text-decoration: none; /*quita deco del texto*/
-  box-shadow: 0 8px 5px #070f08; /* opcional, da profundidad */
-  transition: background-color 0.6s; /*esto maraca el tiempo de la transicion*/
+  border-radius: 70px;
+  text-decoration: none;
+  box-shadow: 0 8px 5px #070f08;
+  transition: background-color 0.6s;
 }
 
-.menu-horizontal li :hover {
-  background-color: #45a049; /* efecto al pasar el mouse */
+.menu-horizontal li a:hover {
+  background-color: #45a049;
 }
 
+/* Footer */
 footer {
-  position: fixed; /*mantiene el footer abajo */
   bottom: 0;
   width: 100%;
   display: flex;
-  justify-content: center; /* centra los hijos horizontalmente */
-  align-items: center;
+  justify-content: center;
+
+  padding: 10px 0;
 }
 
 .redes li {
   list-style: none;
   display: inline-block;
-  justify-content: center;
+  margin: 0 10px;
+}
+
+@media (max-width: 768px) {
+  #contenido {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .menu-horizontal {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 600px) {
+  #titulo h1 {
+    font-size: 24px;
+  }
+
+  #titulo p {
+    font-size: 16px;
+  }
+
+  .menu-horizontal li a {
+    padding: 8px 20px;
+    font-size: 14px;
+  }
+
+  footer {
+    position: static;
+    margin-top: 20px;
+  }
 }
